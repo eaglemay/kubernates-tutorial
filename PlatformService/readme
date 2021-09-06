@@ -1,0 +1,11 @@
+-- dotnet
+dotnet new webapi -n PlatformService
+
+dotnet build
+dotnet run
+
+-- docker
+docker build -t eaglemay/platformservice .
+docker push eaglemay/platformservice
+
+docker run -p 6050:80 eaglemay/commandservice

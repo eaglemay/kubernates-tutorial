@@ -1,0 +1,30 @@
+kubectl get deployments
+kubectl get pods
+kubectl get services
+kubectl get namespace
+
+kubectl get pods --namespace=ingress-nginx
+
+kubectl apply -f platforms-depl.yaml
+kubectl apply -f commands-depl.yaml
+kubectl apply -f platforms-np-srv.yaml
+
+kubectl rollout restart deployment platforms-depl
+kubectl rollout restart deployment commands-depl
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f ingress-srv.yaml
+
+
+kubectl get storageclass
+kubectl apply -f local-pvc.yaml
+kubectl get pvc
+
+
+
+
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="Altigen1234!"
+kubectl apply -f mssql-plat-depl.yaml
+
+
+kubectl apply -f rabbitmq-depl.yaml
